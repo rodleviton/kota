@@ -1,0 +1,11 @@
+email: rod@rodleviton.com
+fullname: 'Rodney Leviton'
+title: Administrator
+state: enabled
+access:
+  admin:
+    login: true
+    super: true
+  site:
+    login: true
+hashed_password: $2y$10$olFcKcQ8CHRFbUkxOtFVN.m87oYFpAEDs63b403ITb6MZgzKvU..2

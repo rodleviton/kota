@@ -1,0 +1,12 @@
+{% macro pageLinkName(text) %}{{- text|lower|replace({' ':'-'}) -}}
+{% endmacro %}
+
+<ul class="nav justify-content-end">
+    {% for module in page.collection() %}
+        {% if module.header.visible %}
+            <li class="nav-item">
+                <a class="nav-link" href="#{{ _self.pageLinkName(module.menu) }}">{{ module.menu }}</a>
+            </li>
+        {% endif %}
+    {% endfor %}
+</ul>

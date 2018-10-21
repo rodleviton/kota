@@ -1,0 +1,69 @@
+{% set theme_config = attribute(config.themes, config.system.pages.theme) %}
+<!doctype html>
+<html lang="{{ grav.language.getActive ?: theme_config.default_lang }}">
+    <head>
+        {% block head %}
+            <meta charset="utf-8"/>
+            <title>
+                {% if header.title %}{{ header.title|e('html') }}
+                    |
+                {% endif %}{{ site.title|e('html') }}</title>
+
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+            {% include 'partials/metadata.html.twig' %}
+
+            <link rel="icon" type="image/png" href="{{ url('theme://images/logo.png') }}"/>
+            <link rel="canonical" href="{{ page.url(true, true) }}"/>
+
+            <link href="https://fonts.googleapis.com/css?family=Coming+Soon|Open+Sans:400,400i,700,700i" rel="stylesheet">
+
+            {% block stylesheets %}
+                {% do assets.addCss('theme://css-compiled/theme.min.css') %}
+            {% endblock %}
+            {{ assets.css() }}
+
+            {% block javascripts %}
+                {% do 
+                    assets.addJs('jquery', 100) %}
+                {% do 
+                    assets.addJs('theme://js/bootstrap.bundle.min.js', {group: 'bottom'}) %}
+                {% do 
+                    assets.addJs('theme://js/smooth-scroll.js', {group: 'bottom'}) %}
+                {% do 
+                    assets.addJs('theme://js/script.js', {group: 'bottom'}) %}
+            {% endblock %}
+            {{ assets.js() }}
+
+        {% endblock head%}
+    </head>
+    <body id="top" class="{{ page.header.body_classes }}" data-spy="scroll" data-offset="60" data-target="#navbar">
+
+        {% block header %}
+            <nav id="navbar" class="navbar fixed-top navbar-light bg-light">
+                <a class="navbar-brand" href="{{ base_url == '' ? '/' : base_url }}">{{ config.site.title }}</a>
+
+                {% block header_navigation %}
+                    {% include 'partials/navigation.html.twig' %}
+                {% endblock %}
+            </nav>
+        {% endblock %}
+
+        <main id="main" class="container-fluid">
+            {% block body %}
+                {% block content %}{% endblock %}
+            {% endblock %}
+        </main>
+
+        {% block footer %}
+            <footer>
+                Footer
+            </footer>
+        {% endblock %}
+
+        {% block bottom %}
+            {{ assets.js('bottom') }}
+        {% endblock %}
+
+    </body>
+</html>
