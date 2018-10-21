@@ -23,9 +23,12 @@ class __TwigTemplate_d8ef083f680828199135215664d21a6c78f7d06695cc85a29191ab48d0f
     public function block_content($context, array $blocks = array())
     {
         // line 2
-        echo "    ";
+        echo "    <div class=\"container\">
+        ";
+        // line 3
         echo $this->getAttribute(($context["page"] ?? null), "content", array());
         echo "
+    </div>
 ";
     }
 
@@ -36,7 +39,7 @@ class __TwigTemplate_d8ef083f680828199135215664d21a6c78f7d06695cc85a29191ab48d0f
 
     public function getDebugInfo()
     {
-        return array (  26 => 2,  20 => 1,);
+        return array (  29 => 3,  26 => 2,  20 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -50,7 +53,9 @@ class __TwigTemplate_d8ef083f680828199135215664d21a6c78f7d06695cc85a29191ab48d0f
     public function getSourceContext()
     {
         return new Twig_Source("{% block content %}
-    {{ page.content }}
+    <div class=\"container\">
+        {{ page.content }}
+    </div>
 {% endblock %}", "modular/default.html.twig", "/Users/rodleviton/Development/kota/user/themes/kota/templates/modular/default.html.twig");
     }
 }

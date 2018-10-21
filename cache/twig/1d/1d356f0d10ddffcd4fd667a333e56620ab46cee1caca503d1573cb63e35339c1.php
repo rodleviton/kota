@@ -15,6 +15,7 @@ class __TwigTemplate_20181f141153d9e68998ad3ed6aca23ec4d13bab54676d548918ed8cd9f
             'javascripts' => array($this, 'block_javascripts'),
             'header' => array($this, 'block_header'),
             'header_navigation' => array($this, 'block_header_navigation'),
+            'hero' => array($this, 'block_hero'),
             'body' => array($this, 'block_body'),
             'content' => array($this, 'block_content'),
             'footer' => array($this, 'block_footer'),
@@ -48,22 +49,27 @@ class __TwigTemplate_20181f141153d9e68998ad3ed6aca23ec4d13bab54676d548918ed8cd9f
         $this->displayBlock('header', $context, $blocks);
         // line 51
         echo "
+        ";
+        // line 52
+        $this->displayBlock('hero', $context, $blocks);
+        // line 53
+        echo "
         <main id=\"main\" class=\"container-fluid\">
             ";
-        // line 53
+        // line 55
         $this->displayBlock('body', $context, $blocks);
-        // line 56
+        // line 58
         echo "        </main>
 
         ";
-        // line 58
+        // line 60
         $this->displayBlock('footer', $context, $blocks);
-        // line 63
+        // line 65
         echo "
         ";
-        // line 64
+        // line 66
         $this->displayBlock('bottom', $context, $blocks);
-        // line 67
+        // line 69
         echo "
     </body>
 </html>";
@@ -187,35 +193,40 @@ class __TwigTemplate_20181f141153d9e68998ad3ed6aca23ec4d13bab54676d548918ed8cd9f
         echo "                ";
     }
 
-    // line 53
+    // line 52
+    public function block_hero($context, array $blocks = array())
+    {
+    }
+
+    // line 55
     public function block_body($context, array $blocks = array())
     {
-        // line 54
+        // line 56
         echo "                ";
         $this->displayBlock('content', $context, $blocks);
-        // line 55
+        // line 57
         echo "            ";
     }
 
-    // line 54
+    // line 56
     public function block_content($context, array $blocks = array())
     {
     }
 
-    // line 58
+    // line 60
     public function block_footer($context, array $blocks = array())
     {
-        // line 59
+        // line 61
         echo "            <footer>
                 Footer
             </footer>
         ";
     }
 
-    // line 64
+    // line 66
     public function block_bottom($context, array $blocks = array())
     {
-        // line 65
+        // line 67
         echo "            ";
         echo $this->getAttribute(($context["assets"] ?? null), "js", array(0 => "bottom"), "method");
         echo "
@@ -234,7 +245,7 @@ class __TwigTemplate_20181f141153d9e68998ad3ed6aca23ec4d13bab54676d548918ed8cd9f
 
     public function getDebugInfo()
     {
-        return array (  219 => 65,  216 => 64,  209 => 59,  206 => 58,  201 => 54,  197 => 55,  194 => 54,  191 => 53,  187 => 48,  184 => 47,  181 => 46,  176 => 49,  174 => 46,  167 => 44,  164 => 43,  161 => 42,  157 => 35,  155 => 34,  153 => 33,  151 => 32,  149 => 31,  147 => 30,  145 => 29,  143 => 28,  141 => 27,  138 => 26,  134 => 23,  131 => 22,  128 => 21,  120 => 36,  118 => 26,  112 => 24,  110 => 21,  103 => 17,  99 => 16,  96 => 15,  94 => 14,  87 => 10,  80 => 8,  76 => 6,  73 => 5,  67 => 67,  65 => 64,  62 => 63,  60 => 58,  56 => 56,  54 => 53,  50 => 51,  48 => 42,  43 => 40,  40 => 39,  38 => 5,  33 => 3,  30 => 2,  28 => 1,);
+        return array (  230 => 67,  227 => 66,  220 => 61,  217 => 60,  212 => 56,  208 => 57,  205 => 56,  202 => 55,  197 => 52,  193 => 48,  190 => 47,  187 => 46,  182 => 49,  180 => 46,  173 => 44,  170 => 43,  167 => 42,  163 => 35,  161 => 34,  159 => 33,  157 => 32,  155 => 31,  153 => 30,  151 => 29,  149 => 28,  147 => 27,  144 => 26,  140 => 23,  137 => 22,  134 => 21,  126 => 36,  124 => 26,  118 => 24,  116 => 21,  109 => 17,  105 => 16,  102 => 15,  100 => 14,  93 => 10,  86 => 8,  82 => 6,  79 => 5,  73 => 69,  71 => 66,  68 => 65,  66 => 60,  62 => 58,  60 => 55,  56 => 53,  54 => 52,  51 => 51,  49 => 42,  44 => 40,  41 => 39,  39 => 5,  34 => 3,  31 => 2,  29 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -297,6 +308,8 @@ class __TwigTemplate_20181f141153d9e68998ad3ed6aca23ec4d13bab54676d548918ed8cd9f
                 {% endblock %}
             </nav>
         {% endblock %}
+
+        {% block hero %}{% endblock %}
 
         <main id=\"main\" class=\"container-fluid\">
             {% block body %}

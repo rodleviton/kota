@@ -1,0 +1,10 @@
+{% set hero_image = page.media.images | first %}
+
+<div id="hero-wrapper">
+    <div id="hero" class="jumbotron jumbotron-fluid" {% if hero_image %} style="background-image: url({{ hero_image.url }});" {% endif %}>
+        <div class="container">
+            {{ content }}
+        </div>
+    </div>
+    <div id="clouds"></div>
+</div>

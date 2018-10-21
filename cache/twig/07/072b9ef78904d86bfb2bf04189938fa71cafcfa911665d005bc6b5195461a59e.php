@@ -10,6 +10,7 @@ class __TwigTemplate_ec0bc23a09ba2a639c824e819f7b3306657f1a5d8f179a121d8b8050147
         // line 1
         $this->parent = $this->loadTemplate("partials/base.html.twig", "modular.html.twig", 1);
         $this->blocks = array(
+            'hero' => array($this, 'block_hero'),
             'body' => array($this, 'block_body'),
         );
     }
@@ -25,23 +26,46 @@ class __TwigTemplate_ec0bc23a09ba2a639c824e819f7b3306657f1a5d8f179a121d8b8050147
     }
 
     // line 6
-    public function block_body($context, array $blocks = array())
+    public function block_hero($context, array $blocks = array())
     {
         // line 7
         echo "    ";
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable($this->getAttribute(($context["page"] ?? null), "collection", array(), "method"));
         foreach ($context['_seq'] as $context["_key"] => $context["module"]) {
-            // line 8
-            echo "        <div id=\"";
-            echo $this->getAttribute($this, "pageLinkName", array(0 => $this->getAttribute($context["module"], "menu", array())), "method");
-            echo "\"></div>
+            if (($this->getAttribute($context["module"], "template", array()) == "modular/hero")) {
+                // line 8
+                echo "        ";
+                echo $this->getAttribute($context["module"], "content", array());
+                echo "
+    ";
+            }
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['module'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+    }
+
+    // line 12
+    public function block_body($context, array $blocks = array())
+    {
+        // line 13
+        echo "    ";
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable($this->getAttribute(($context["page"] ?? null), "collection", array(), "method"));
+        foreach ($context['_seq'] as $context["_key"] => $context["module"]) {
+            if (($this->getAttribute($context["module"], "template", array()) != "modular/hero")) {
+                // line 14
+                echo "        <div id=\"";
+                echo $this->getAttribute($this, "pageLinkName", array(0 => $this->getAttribute($context["module"], "menu", array())), "method");
+                echo "\"></div>
 
         ";
-            // line 10
-            echo $this->getAttribute($context["module"], "content", array());
-            echo "
+                // line 16
+                echo $this->getAttribute($context["module"], "content", array());
+                echo "
     ";
+            }
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['module'], $context['_parent'], $context['loop']);
@@ -86,7 +110,7 @@ class __TwigTemplate_ec0bc23a09ba2a639c824e819f7b3306657f1a5d8f179a121d8b8050147
 
     public function getDebugInfo()
     {
-        return array (  52 => 3,  42 => 10,  36 => 8,  31 => 7,  28 => 6,  11 => 1,);
+        return array (  76 => 3,  65 => 16,  59 => 14,  53 => 13,  50 => 12,  38 => 8,  32 => 7,  29 => 6,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -104,8 +128,14 @@ class __TwigTemplate_ec0bc23a09ba2a639c824e819f7b3306657f1a5d8f179a121d8b8050147
 {% macro pageLinkName(text) %}{{- text|lower|replace({' ':'-'}) -}}
 {% endmacro %}
 
+{% block hero %}
+    {% for module in page.collection()if module.template == 'modular/hero' %}
+        {{ module.content }}
+    {% endfor %}
+{% endblock %}
+
 {% block body %}
-    {% for module in page.collection() %}
+    {% for module in page.collection()if module.template != 'modular/hero' %}
         <div id=\"{{ _self.pageLinkName(module.menu) }}\"></div>
 
         {{ module.content }}

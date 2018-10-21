@@ -2,5 +2,53 @@
 
 body {
   position: relative;
-  padding-top: 100px; // fixed navbar
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Coming Soon", cursive;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+// NAVIGATION
+#navbar {
+  a {
+    color: $secondary;
+
+    &.active {
+      color: $primary;
+    }
+  }
+}
+
+// HERO
+#hero-wrapper {
+  position: relative;
+  padding-bottom: 80px;
+}
+
+#hero {
+  height: 610px;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  text-align: center;
+  padding: 0;
+}
+
+#clouds {
+  height: 224px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  background: url(../images/clouds.png) repeat-x center;
 }
