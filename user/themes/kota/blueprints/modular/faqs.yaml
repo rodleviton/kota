@@ -1,0 +1,29 @@
+title: FAQs
+"@extends":
+  type: default
+  context: blueprints://pages
+
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+
+      fields:
+        faqs:
+          type: tab
+          title: FAQs
+
+          fields:
+            header.kota.faqs:
+              name: faqs
+              type: list
+              label: FAQs
+
+              fields:
+                .question:
+                  type: text
+                  label: Question
+                .answer:
+                  type: editor
+                  label: Answer

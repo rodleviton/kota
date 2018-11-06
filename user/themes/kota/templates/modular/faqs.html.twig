@@ -1,0 +1,32 @@
+{% set subheading = page.header.kota.subheading %}
+
+{% block content %}
+    <div class="container section">
+        <h2>{{ page.title }}</h2>
+
+        {% if subheading %}
+            <h3>{{ subheading }}</h3>
+        {% endif %}
+
+        <div id="faqs class=" accordion="accordion">
+            {% for faq in page.header.kota.faqs %}
+                <div class="faq">
+                    <div id="heading-{{loop.index}}">
+                        <h4 class="mb-0">
+                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse-{{loop.index}}" aria-expanded="true" aria-controls="collapse-{{loop.index}}">
+                                {{ faq.question }}
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                        </h4>
+                    </div>
+
+                    <div id="collapse-{{loop.index}}" class="collapse" aria-labelledby="heading-{{loop.index}}" data-parent="#faqs">
+                        <div class="card-body">
+                            {{ faq.answer }}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

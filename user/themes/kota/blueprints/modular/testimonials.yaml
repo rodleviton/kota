@@ -1,0 +1,35 @@
+title: Testimonials
+"@extends":
+  type: default
+  context: blueprints://pages
+
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+
+      fields:
+        content:
+          fields:
+            header.kota.background:
+              type: colorpicker
+              label: Colour
+
+        testimonials:
+          type: tab
+          title: Testimonials
+
+          fields:
+            header.kota.testimonials:
+              name: testimonials
+              type: list
+              label: Testimonials
+
+              fields:
+                .author:
+                  type: text
+                  label: Author
+                .quote:
+                  type: editor
+                  label: Quote

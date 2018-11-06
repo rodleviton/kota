@@ -1,5 +1,25 @@
+{% set image = page.media.images | first %}
+{% set subheading = page.header.kota.subheading %}
+
 {% block content %}
-    <div class="container">
-        {{ page.content }}
+    <div class="container section">
+        <h2 class="{{ subheading ? 'no-margin' : '' }}">{{ page.title }}</h2>
+        {% if subheading %}
+            <h3>{{ subheading }}</h3>
+        {% endif %}
+
+        <div class="row">
+            {% if image %}
+                <div class="col-md-5 col-sm-12">
+                    <div class="polaroid">
+                        {{ image.html }}
+                    </div>
+                </div>
+            {% endif %}
+
+            <div class="{{ image ? 'col-md-7 col-sm-12' : 'col' }}">
+                {{ page.content }}
+            </div>
+        </div>
     </div>
 {% endblock %}

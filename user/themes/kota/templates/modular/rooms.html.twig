@@ -1,0 +1,36 @@
+{% set background = page.header.kota.background %}
+{% set subheading = page.header.kota.subheading %}
+
+{% block content %}
+    <div style="background-color: {{ background ? background : '#fff' }}">
+        <div class="container section">
+            <h2>{{ page.title }}</h2>
+            {% if subheading %}
+                <h3>{{ subheading }}</h3>
+            {% endif %}
+
+            {{ page.content }}
+
+            <div class="row">
+                {% for room in page.header.kota.rooms %}
+                    <div class="col-lg-4">
+                        <div class="media room" style="background-color: {{ room.colour }}">
+                            {% for image in room.image %}
+                                <img class="mr-3" src="{{image.path}}"/>
+                            {% endfor %}
+                            <div class="media-body">
+                                <div class="room-content">
+                                    <h4 class="mt-0">{{ room.title }}</h4>
+                                    <div class="room-description">
+                                        {{ room.description|markdown }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

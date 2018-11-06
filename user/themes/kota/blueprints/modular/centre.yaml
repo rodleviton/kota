@@ -1,0 +1,38 @@
+title: Our Centre
+"@extends":
+  type: default
+  context: blueprints://pages
+
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+
+      fields:
+        content:
+          fields:
+            header.kota.background:
+              type: colorpicker
+              label: Colour
+
+        highlights:
+          type: tab
+          title: Highlights
+
+          fields:
+            header.kota.centre.highlights:
+              name: highlights
+              type: list
+              label: Highlights
+
+              fields:
+                .title:
+                  type: text
+                  label: Title
+                .colour:
+                  type: colorpicker
+                  label: Colour
+                .description:
+                  type: editor
+                  label: Description

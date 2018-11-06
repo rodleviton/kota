@@ -1,0 +1,23 @@
+{% set background = page.header.kota.background %}
+
+{% block content %}
+    <div style="background-color: {{ background ? background : '#fff' }}">
+        <div class="container section">
+            <h2>{{ page.title }}</h2>
+            {{ page.content }}
+
+            <div class="row features">
+                {% for feature in page.header.kota.centre.highlights %}
+                    <div class="feature col-md-6">
+                        <div class="colour-swatch" style="background-color: {{ feature.colour }}"></div>
+                        <div class="feature-content">
+                            <h4 style="color: {{ feature.colour }}">{{ feature.title }}</h4>
+                            {{ feature.description|markdown }}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,53 @@
+title: Our Rooms
+"@extends":
+  type: default
+  context: blueprints://pages
+
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+
+      fields:
+        content:
+          fields:
+            header.kota.background:
+              type: colorpicker
+              label: Colour
+
+            header.kota.subheading:
+              type: text
+              label: Subheading
+
+        rooms:
+          type: tab
+          title: Rooms
+
+          fields:
+            header.kota.rooms:
+              name: rooms
+              type: list
+              label: Rooms
+
+              fields:
+                .title:
+                  type: text
+                  label: Title
+                .age:
+                  type: text
+                  label: Age range
+                .description:
+                  type: editor
+                  label: Description
+                .colour:
+                  type: colorpicker
+                  label: Colour
+                .image:
+                  type: file
+                  label: Image
+                  random_name: true
+                  multiple: false
+                  destination: "self@"
+                  accept:
+                    - image/*

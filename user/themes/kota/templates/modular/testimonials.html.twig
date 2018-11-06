@@ -1,0 +1,18 @@
+{% set background = page.header.kota.background %}
+
+{% block content %}
+    <div style="background-color: {{ background ? background : '#fff' }}">
+        <div class="container section">
+            <h2>{{ page.title }}</h2>
+
+            <div class="testimonials owl-theme owl-carousel">
+                {% for testimonial in page.header.kota.testimonials %}
+                    <div class="testimonial">
+                        {{ testimonial.quote|markdown }}
+                        <p class="author">{{ testimonial.author }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

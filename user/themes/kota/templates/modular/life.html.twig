@@ -1,0 +1,30 @@
+{% set background = page.header.kota.background %}
+
+{% block content %}
+    <div style="background-color: {{ background ? background : '#fff' }}">
+        <div class="container section">
+            <h2>{{ page.title }}</h2>
+            {{ page.content }}
+
+            {% for highlight in page.header.kota.life.highlights %}
+                <div class="life-highlight">
+                    <div class="row">
+                        {% for image in highlight.image %}
+                            <div class="col-md-4">
+                                <div class="polaroid">
+                                    <img src="{{image.path}}"/>
+                                </div>
+                            </div>
+                        {% endfor %}
+
+                        <div class="col-md-8">
+                            <h4>{{ highlight.title }}</h4>
+                            {{ highlight.description|markdown }}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

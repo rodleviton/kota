@@ -1,0 +1,43 @@
+title: Life at Kota
+"@extends":
+  type: default
+  context: blueprints://pages
+
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+
+      fields:
+        content:
+          fields:
+            header.kota.background:
+              type: colorpicker
+              label: Colour
+
+        highlights:
+          type: tab
+          title: Highlights
+
+          fields:
+            header.kota.life.highlights:
+              name: highlights
+              type: list
+              label: Highlights
+
+              fields:
+                .title:
+                  type: text
+                  label: Title
+                .description:
+                  type: editor
+                  label: Description
+                .image:
+                  type: file
+                  label: Image
+                  random_name: true
+                  multiple: false
+                  destination: "self@"
+                  accept:
+                    - image/*

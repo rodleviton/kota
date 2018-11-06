@@ -1,5 +1,21 @@
 @import "./bootstrap/bootstrap";
 
+/////////////////////////////////////////
+// VARIABLES
+/////////////////////////////////////////
+$maroon: #b72c4b;
+$blue: #556fea;
+$yellow: #ecc657;
+$green: #91ba31;
+$purple: #742c68;
+
+$primary: $maroon;
+$secondary: $blue;
+$tertiary: $yellow;
+
+/////////////////////////////////////////
+// BASE
+/////////////////////////////////////////
 body {
   position: relative;
 }
@@ -17,7 +33,51 @@ body {
   font-family: "Open Sans", sans-serif;
 }
 
+hr {
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+
+/////////////////////////////////////////
+// MAIN
+/////////////////////////////////////////
+#main {
+  position: relative;
+  z-index: 2;
+}
+
+/////////////////////////////////////////
+// SECTIONS
+/////////////////////////////////////////
+.section {
+  padding-bottom: 40px;
+  padding-top: 40px;
+}
+
+.section h2 {
+  text-align: center;
+  color: $primary;
+  margin-bottom: 2rem;
+
+  &.no-margin {
+    margin-bottom: 0.85rem;
+  }
+}
+
+.section h3 {
+  text-align: center;
+  font-size: $h5-font-size;
+  margin-bottom: 2rem;
+}
+
+.section blockquote {
+  font-family: "Indie Flower", cursive;
+  font-size: 1.2rem;
+}
+
+/////////////////////////////////////////
 // NAVIGATION
+/////////////////////////////////////////
 #navbar {
   a {
     color: $secondary;
@@ -28,14 +88,102 @@ body {
   }
 }
 
+/////////////////////////////////////////
+// OUR CENTRE
+/////////////////////////////////////////
+.features {
+  margin-top: 40px;
+}
+
+.feature {
+  display: flex;
+  margin-bottom: 40px;
+}
+
+.colour-swatch {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  min-width: 40px;
+  margin-right: 20px;
+}
+
+/////////////////////////////////////////
+// LIFE AT KOTA
+/////////////////////////////////////////
+.life-highlight:nth-child(2) {
+  h4 {
+    color: $blue;
+  }
+}
+
+.life-highlight:nth-child(3) {
+  h4 {
+    color: $green;
+  }
+}
+
+.life-highlight:nth-child(4) {
+  h4 {
+    color: $yellow;
+  }
+}
+
+.life-highlight-content {
+  display: flex;
+}
+
+/////////////////////////////////////////
+// ROOMS
+/////////////////////////////////////////
+.room {
+  background: $blue;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.room-content {
+  padding: 10px 0;
+}
+
+.room-description {
+  font-size: 0.875rem;
+}
+
+/////////////////////////////////////////
+// TESTIMONIALS
+/////////////////////////////////////////
+.testimonials {
+  text-align: center;
+  color: #fff;
+
+  .author {
+    font-weight: 600;
+  }
+}
+
+/////////////////////////////////////////
+// FAQs
+/////////////////////////////////////////
+.faq button {
+  color: $yiq-text-dark;
+  font-size: $h5-font-size;
+
+  i:before {
+    content: "\f077";
+  }
+}
+
+/////////////////////////////////////////
 // HERO
+/////////////////////////////////////////
 #hero-wrapper {
   position: relative;
-  padding-bottom: 80px;
+  z-index: 1;
 }
 
 #hero {
-  height: 610px;
+  height: 500px;
   background-position: center;
   background-size: cover;
   display: flex;
@@ -49,6 +197,20 @@ body {
   height: 224px;
   width: 100%;
   position: absolute;
-  bottom: 0;
+  bottom: -100px;
   background: url(../images/clouds.png) repeat-x center;
+}
+
+.polaroid {
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 2px 0px;
+  background: #fff;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #e3e3e3;
+  padding: 10px;
+  margin-bottom: 40px;
+
+  > img {
+    max-width: 100%;
+  }
 }
