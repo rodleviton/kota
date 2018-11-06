@@ -10,6 +10,11 @@ form:
       active: 1
 
       fields:
+        content:
+          fields:
+            header.kota.subheading:
+              type: text
+              label: Subheading
         faqs:
           type: tab
           title: FAQs

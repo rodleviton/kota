@@ -167,11 +167,32 @@ hr {
 /////////////////////////////////////////
 .faq button {
   color: $yiq-text-dark;
-  font-size: $h5-font-size;
+  font-size: $h6-font-size;
 
   i:before {
     content: "\f077";
   }
+
+  &.collapsed {
+    i:before {
+      content: "\f078";
+    }
+  }
+}
+
+/////////////////////////////////////////
+// CONTACT US
+/////////////////////////////////////////
+.contact .content {
+  text-align: center;
+}
+#map {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  height: 530px;
+  background-image: url("../images/map.png");
+  background-position: center center;
 }
 
 /////////////////////////////////////////
