@@ -36,15 +36,15 @@ $grays: map-merge(
   $grays
 );
 
-$blue: #007bff !default;
+$blue: #556fea !default;
 $indigo: #6610f2 !default;
-$purple: #6f42c1 !default;
+$purple: #742c68 !default;
 $pink: #e83e8c !default;
 $red: #dc3545 !default;
 $maroon: #b72c4b !default;
 $orange: #fd7e14 !default;
-$yellow: #ffc107 !default;
-$green: #28a745 !default;
+$yellow: #ecc657 !default;
+$green: #91ba31 !default;
 $teal: #20c997 !default;
 $cyan: #17a2b8 !default;
 
@@ -71,7 +71,7 @@ $colors: map-merge(
 );
 
 $primary: $maroon !default;
-$secondary: $gray-600 !default;
+$secondary: $blue !default;
 $success: $green !default;
 $info: $cyan !default;
 $warning: $yellow !default;
@@ -238,7 +238,7 @@ $box-shadow: 0 0.5rem 1rem rgba($black, 0.15) !default;
 $box-shadow-lg: 0 1rem 3rem rgba($black, 0.175) !default;
 
 $component-active-color: $white !default;
-$component-active-bg: theme-color("primary") !default;
+$component-active-bg: theme-color("secondary") !default;
 
 $caret-width: 0.3em !default;
 

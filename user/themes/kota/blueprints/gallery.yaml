@@ -1,4 +1,4 @@
-title: Life at Kota
+title: Gallery
 "@extends":
   type: default
   context: blueprints://pages
@@ -18,21 +18,15 @@ form:
             header.media_order:
               @unset: true
 
-            header.kota.life.highlights:
-              name: highlights
+            header.kota.images:
+              name: images
               type: list
-              label: Highlights
+              label: Images
 
               fields:
                 .title:
                   type: text
                   label: Title
-                .colour:
-                  type: colorpicker
-                  label: Colour
-                .description:
-                  type: editor
-                  label: Description
                 .image:
                   type: file
                   label: Image

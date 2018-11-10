@@ -1,7 +1,7 @@
 {% macro pageLinkName(text) %}{{- text|lower|replace({' ':'-'}) -}}
 {% endmacro %}
 
-<ul class="nav justify-content-end">
+<ul class="navbar-nav">
     {% for module in page.collection() %}
         {% if module.header.visible %}
             <li class="nav-item">

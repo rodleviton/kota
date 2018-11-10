@@ -1,14 +1,36 @@
 {% set subheading = page.header.kota.subheading %}
+{% set image = page.media.images | first %}
 
 {% block content %}
     <a id="map" href="https://www.google.com/maps/place/Kids+on+the+Avenue+Children's+Centre/@-37.75275,144.965787,18z/data=!4m5!3m4!1s0x0:0x811d51024b4482fd!8m2!3d-37.75275!4d144.9657871?hl=en-US" target="_blank"></a>
-    <div class="contact container section">
+
+    <div class="container section">
         <h2 class="{{ subheading ? 'no-margin' : '' }}">{{ page.title }}</h2>
         {% if subheading %}
-            <h3>{{ subheading }}</h3>
+            <h3 class="subheading">{{ subheading }}</h3>
         {% endif %}
-        <div class="content">
+
+        <div class="content center">
             {{ page.content }}
+        </div>
+
+        <div class="row mt-5">
+            {% if image %}
+                <div class="d-none d-lg-block col-lg-6">
+                    <div class="polaroid">
+                        {{ image.html }}
+                    </div>
+                </div>
+            {% endif %}
+
+
+            <div class="col-md-8 col-lg-6">
+                <div id="form-result"></div>
+
+                <div id="form">
+                    {% include "forms/form.html.twig" %}
+                </div>
+            </div>
         </div>
     </div>
 {% endblock %}

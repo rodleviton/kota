@@ -47,7 +47,7 @@ hr {
 }
 
 /////////////////////////////////////////
-// SECTIONS
+// SECTION
 /////////////////////////////////////////
 .section {
   padding-bottom: 40px;
@@ -64,9 +64,14 @@ hr {
   }
 }
 
-.section h3 {
+.section {
+  h3 {
+    font-size: $h5-font-size;
+  }
+}
+
+.section .subheading {
   text-align: center;
-  font-size: $h5-font-size;
   margin-bottom: 2rem;
 }
 
@@ -80,12 +85,21 @@ hr {
 /////////////////////////////////////////
 #navbar {
   a {
-    color: $secondary;
+    color: #333;
 
     &.active {
       color: $primary;
     }
   }
+}
+
+.navbar-brand {
+  background: url(../images/logo-alt.png) no-repeat;
+  background-size: contain;
+  text-indent: 999999em;
+  height: 25px;
+  width: 75px;
+  overflow: hidden;
 }
 
 /////////////////////////////////////////
@@ -111,24 +125,6 @@ hr {
 /////////////////////////////////////////
 // LIFE AT KOTA
 /////////////////////////////////////////
-.life-highlight:nth-child(2) {
-  h4 {
-    color: $blue;
-  }
-}
-
-.life-highlight:nth-child(3) {
-  h4 {
-    color: $green;
-  }
-}
-
-.life-highlight:nth-child(4) {
-  h4 {
-    color: $yellow;
-  }
-}
-
 .life-highlight-content {
   display: flex;
 }
@@ -183,7 +179,7 @@ hr {
 /////////////////////////////////////////
 // CONTACT US
 /////////////////////////////////////////
-.contact .content {
+.content.center {
   text-align: center;
 }
 #map {
@@ -201,25 +197,99 @@ hr {
 #hero-wrapper {
   position: relative;
   z-index: 1;
+  margin-bottom: 40px;
 }
 
 #hero {
-  height: 500px;
+  height: 630px;
   background-position: center;
   background-size: cover;
   display: flex;
   align-items: center;
+  justify-content: center;
   color: #fff;
   text-align: center;
   padding: 0;
+  margin-bottom: 0;
+
+  .content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .logo {
+    height: 157px;
+    width: 157px;
+    background-image: url("../images/logo.png");
+    background-size: cover;
+    text-indent: -999999em;
+    overflow: hidden;
+  }
+}
+
+.image-overlay {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  position: absolute;
 }
 
 #clouds {
-  height: 224px;
+  height: 106px;
   width: 100%;
   position: absolute;
-  bottom: -100px;
+  bottom: 0;
   background: url(../images/clouds.png) repeat-x center;
+}
+
+.callouts {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.callout {
+  display: flex;
+  flex-direction: column;
+  height: 150px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  width: 100%;
+
+  @include media-breakpoint-up(md) {
+    width: 25%;
+  }
+
+  &:hover {
+    color: #fff;
+  }
+
+  > img {
+    margin-bottom: 20px;
+  }
+
+  > p {
+    margin-bottom: 0;
+  }
+
+  &:nth-child(1) {
+    background: $purple;
+  }
+
+  &:nth-child(2) {
+    background: $blue;
+  }
+
+  &:nth-child(3) {
+    background: $yellow;
+  }
+
+  &:nth-child(4) {
+    background: $green;
+  }
 }
 
 .polaroid {
@@ -233,5 +303,80 @@ hr {
 
   > img {
     max-width: 100%;
+  }
+}
+
+/////////////////////////////////////////
+// Footer
+/////////////////////////////////////////
+#footer {
+  color: white;
+  font-size: 0.875rem;
+
+  .footer-top {
+    height: 400px;
+    width: 100%;
+    background: url(../images/footer-hero.jpg) center;
+    background-size: cover;
+  }
+
+  .footer-middle {
+    background: darken($purple, 5%);
+
+    p {
+      margin-bottom: 0;
+    }
+
+    .kota-centre {
+      margin-bottom: 10px;
+    }
+  }
+
+  .footer-bottom {
+    background: darken($purple, 7%);
+    padding: 15px;
+    text-align: right;
+  }
+
+  .footer-logo {
+    height: 70px;
+    width: 94px;
+    background: url(../images/logo-sm.png);
+    margin-bottom: 20px;
+  }
+
+  .footer-gallery {
+    max-width: 320px;
+  }
+
+  .contact-info {
+    margin-bottom: 20px;
+  }
+}
+
+/////////////////////////////////////////
+// Gallery
+/////////////////////////////////////////
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -5px;
+
+  > figure {
+    margin: 0;
+  }
+
+  .thumbnail {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    margin: 5px;
+  }
+
+  .gallery-image-description {
+    display: none;
   }
 }

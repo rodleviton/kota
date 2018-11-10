@@ -12,14 +12,16 @@ form:
       fields:
         content:
           fields:
+            content:
+              @unset: true
+
+            header.media_order:
+              @unset: true
+
             header.kota.subheading:
               type: text
               label: Subheading
-        faqs:
-          type: tab
-          title: FAQs
 
-          fields:
             header.kota.faqs:
               name: faqs
               type: list

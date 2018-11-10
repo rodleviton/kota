@@ -12,6 +12,12 @@ form:
       fields:
         content:
           fields:
+            content:
+              ordering@: 4
+
+            header.media_order:
+              ordering@: 5
+
             header.kota.subheading:
               type: text
               label: Subheading

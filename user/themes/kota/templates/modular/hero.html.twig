@@ -1,10 +1,38 @@
 {% set hero_image = page.media.images | first %}
+{% set parent_handbook = page.find('/parent-handbook').header.kota.handbook|first %}
 
 <div id="hero-wrapper">
     <div id="hero" class="jumbotron jumbotron-fluid" {% if hero_image %} style="background-image: url({{ hero_image.url }});" {% endif %}>
+        <div class="image-overlay"></div>
         <div class="container">
-            {{ content }}
+            <div class="row">
+                <div class="content col col-sm-12 col-lg-8 offset-lg-2">
+                    <div class="logo">Kids on the Avenue</div>
+                    {{ content }}
+                </div>
+            </div>
         </div>
     </div>
     <div id="clouds"></div>
+</div>
+
+<div class="container">
+    <div class="callouts">
+        <a class="callout" href="/{{parent_handbook.path}}" target="_blank">
+            <img src="{{ theme_url }}/images/icon-parent-handbook.png"/>
+            <p>Parent Handbook</p>
+        </a>
+        <a class="callout" href="https://www.moreland.vic.gov.au/community-care/children-and-families/child-care/child-care-centres" target="_blank">
+            <img src="{{ theme_url }}/images/icon-waiting-list.png"/>
+            <p>Register for Waiting List</p>
+        </a>
+        <a class="callout" id="galleryLink" href="/#&gid=1&pid=1">
+            <img src="{{ theme_url }}/images/icon-photo-gallery.png"/>
+            <p>Photo Gallery</p>
+        </a>
+        <a class="callout nav-link" href="/#contact-us">
+            <img src="{{ theme_url }}/images/icon-email.png"/>
+            <p>Get in Touch</p>
+        </a>
+    </div>
 </div>

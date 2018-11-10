@@ -1,0 +1,40 @@
+<footer id="footer">
+    <section class="footer-top"></section>
+    <section class="footer-middle">
+        <div class="container section">
+            <div class="row">
+                <div class="col-md-6 contact-info">
+                    <div class="footer-logo"></div>
+
+                    <img class="kota-centre" src="user/themes/kota/images/kota-centre.jpg" alt="KOTA Centre"/>
+
+                    <div>
+                        <p>32 The Avenue, Coburg Victoria 3058</p>
+                        <p>
+                            <strong>Phone:</strong>
+                            03 9383 6544</p>
+                        <p>
+                            <strong>Fax:</strong>
+                            03 9384 6355</p>
+                    </div>
+                </div>
+
+                <div class="col-md-auto ml-md-auto">
+                    <div class="footer-gallery">
+                        {% include 'modular/gallery.html.twig' with {
+                            'page' : page.find('/gallery')
+                        } %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">Kids on the Avenue
+                    {{ "now"|date("Y") }}</div>
+            </div>
+        </div>
+    </div>
+</footer>

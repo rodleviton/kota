@@ -12,15 +12,13 @@ form:
       fields:
         content:
           fields:
+            header.media_order:
+              @unset: true
+
             header.kota.background:
               type: colorpicker
-              label: Colour
+              label: Background Colour
 
-        highlights:
-          type: tab
-          title: Highlights
-
-          fields:
             header.kota.centre.highlights:
               name: highlights
               type: list

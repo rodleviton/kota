@@ -12,19 +12,20 @@ form:
       fields:
         content:
           fields:
-            header.kota.background:
-              type: colorpicker
-              label: Colour
+            content:
+              @unset: true
+
+            header.media_order:
+              @unset: true
 
             header.kota.subheading:
               type: text
               label: Subheading
 
-        rooms:
-          type: tab
-          title: Rooms
+            header.kota.background:
+              type: colorpicker
+              label: Background Colour
 
-          fields:
             header.kota.rooms:
               name: rooms
               type: list

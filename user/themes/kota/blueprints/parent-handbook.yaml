@@ -1,0 +1,29 @@
+title: Parent Handbook
+"@extends":
+  type: default
+  context: blueprints://pages
+
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+
+      fields:
+        content:
+          fields:
+            content:
+              @unset: true
+
+            header.media_order:
+              @unset: true
+
+            header.kota.handbook:
+              name: pdf
+              type: file
+              label: PDF File
+              random_name: false
+              multiple: false
+              destination: "self@"
+              accept:
+                - .pdf

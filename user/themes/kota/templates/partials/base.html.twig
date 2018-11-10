@@ -24,6 +24,8 @@
                 {% do assets.addCss('theme://css-compiled/owl.carousel.min.css') %}
                 {% do assets.addCss('theme://css-compiled/owl.theme.default.min.css') %}
                 {% do assets.addCss('theme://css-compiled/theme.min.css') %}
+                {% do assets.addCss('theme://css-compiled/photoswipe/photoswipe.css') %}
+                {% do assets.addCss('theme://css-compiled/photoswipe/default-skin/default-skin.css') %}
             {% endblock %}
             {{ assets.css() }}
 
@@ -37,6 +39,10 @@
                 {% do 
                     assets.addJs('theme://js/owl.carousel.min.js', {group: 'bottom'}) %}
                 {% do 
+                    assets.addJs('theme://js/photoswipe.min.js', {group: 'bottom'}) %}
+                {% do
+                    assets.addJs('theme://js/photoswipe-ui-default.min.js', {group: 'bottom'}) %}
+                {% do 
                     assets.addJs('theme://js/script.js', {group: 'bottom'}) %}
             {% endblock %}
             {{ assets.js() }}
@@ -46,12 +52,17 @@
     <body id="top" class="{{ page.header.body_classes }}" data-spy="scroll" data-offset="60" data-target="#navbar">
 
         {% block header %}
-            <nav id="navbar" class="navbar fixed-top navbar-light bg-light">
+            <nav id="navbar" class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
                 <a class="navbar-brand" href="{{ base_url == '' ? '/' : base_url }}">{{ config.site.title }}</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-                {% block header_navigation %}
-                    {% include 'partials/navigation.html.twig' %}
-                {% endblock %}
+                <div class="collapse navbar-collapse justify-content-end" id="nav">
+                    {% block header_navigation %}
+                        {% include 'partials/navigation.html.twig' %}
+                    {% endblock %}
+                </div>
             </nav>
         {% endblock %}
 
@@ -64,9 +75,7 @@
         </main>
 
         {% block footer %}
-            <footer>
-                Footer
-            </footer>
+            {% include 'partials/footer.html.twig' %}
         {% endblock %}
 
         {% block bottom %}
