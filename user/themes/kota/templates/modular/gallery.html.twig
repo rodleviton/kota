@@ -4,21 +4,19 @@
     <!-- Root element of PhotoSwipe. Must have class pswp. -->
     <div class="gallery" itemscope="itemscope" itemtype="http://schema.org/ImageGallery">
         {% for image in page.header.kota.images %}
-            {% if loop.index < 10 %}
-                <figure itemprop="associatedMedia" itemscope="itemscope" itemtype="http://schema.org/ImageObject">
-                    {% for imageField in image.image %}
-                        {% set media = page.media.images[imageField.name] %}
+            <figure class="{{(loop.index > 9) ? "d-none" : ""}}" itemprop="associatedMedia" itemscope="itemscope" itemtype="http://schema.org/ImageObject">
+                {% for imageField in image.image %}
+                    {% set media = page.media.images[imageField.name] %}
 
-                        <a class="thumbnail" href="{{media.url}}" itemprop="contentUrl" data-size="{{media.width}}x{{media.height}}">
-                            {{ media.cropResize(150,150).html }}
-                        </a>
+                    <a class="thumbnail" href="{{media.url}}" itemprop="contentUrl" data-size="{{media.width}}x{{media.height}}">
+                        {{ media.cropResize(150,150).html }}
+                    </a>
 
-                        {% if image.title %}
-                            <figcaption class="gallery-image-description" itemprop="caption description">{{image.title}}</figcaption>
-                        {% endif %}
-                    {% endfor %}
-                </figure>
-            {% endif %}
+                    {% if image.title %}
+                        <figcaption class="gallery-image-description" itemprop="caption description">{{image.title}}</figcaption>
+                    {% endif %}
+                {% endfor %}
+            </figure>
         {% endfor %}
     </div>
 

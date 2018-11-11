@@ -224,7 +224,7 @@ $(document).ready(function() {
     responsive: {
       0: {
         items: 1,
-        nav: false
+        nav: true
       }
     }
   });

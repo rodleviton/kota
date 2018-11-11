@@ -67,6 +67,7 @@ hr {
 .section {
   h3 {
     font-size: $h5-font-size;
+    line-height: 1.8;
   }
 }
 
@@ -86,9 +87,19 @@ hr {
 #navbar {
   a {
     color: #333;
+    padding-left: 1rem;
+    padding-right: 1rem;
 
     &.active {
       color: $primary;
+    }
+  }
+
+  .nav-item {
+    border-right: 1px solid #eee;
+
+    &:last-of-type {
+      border-right: none;
     }
   }
 }
@@ -101,6 +112,7 @@ hr {
   width: 75px;
   overflow: hidden;
 }
+
 
 /////////////////////////////////////////
 // OUR CENTRE
@@ -120,6 +132,13 @@ hr {
   border-radius: 20px;
   min-width: 40px;
   margin-right: 20px;
+}
+
+/////////////////////////////////////////
+// OUR PROGRAM
+/////////////////////////////////////////
+.program-item {
+  margin-bottom: 20px;
 }
 
 /////////////////////////////////////////
@@ -165,6 +184,11 @@ hr {
   color: $yiq-text-dark;
   font-size: $h6-font-size;
 
+  i {
+    position: absolute;
+    right: 1.25rem;
+  }
+
   i:before {
     content: "\f077";
   }
@@ -176,19 +200,22 @@ hr {
   }
 }
 
+.list-group-item.faq {
+  padding: 0;
+
+  .btn {
+    width: 100%;
+    padding: .75rem 2.25rem 1.25rem .75rem;
+    text-align: left;
+    white-space: normal;
+  }
+}
+
 /////////////////////////////////////////
 // CONTACT US
 /////////////////////////////////////////
 .content.center {
   text-align: center;
-}
-#map {
-  display: block;
-  width: 100%;
-  overflow: hidden;
-  height: 530px;
-  background-image: url("../images/map.png");
-  background-position: center center;
 }
 
 /////////////////////////////////////////
@@ -293,6 +320,7 @@ hr {
 }
 
 .polaroid {
+  display: block;
   box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 2px 0px;
   background: #fff;
   border-width: 1px;
@@ -378,5 +406,50 @@ hr {
 
   .gallery-image-description {
     display: none;
+  }
+}
+
+/////////////////////////////////////////
+// Carousel
+/////////////////////////////////////////
+.owl-carousel .owl-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.owl-carousel .owl-nav button.owl-prev {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+
+  &:hover {
+    background: none;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+
+  > span {
+    font-size: 50px;
+  }
+}
+
+.owl-carousel .owl-nav button.owl-next {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+
+  &:hover {
+    background: none;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+
+  > span {
+    font-size: 50px;
   }
 }

@@ -18,6 +18,10 @@ form:
             header.media_order:
               ordering@: 4
 
+            header.kota.background:
+              type: colorpicker
+              label: Background Colour
+
             header.kota.subheading:
               type: text
               label: Subheading

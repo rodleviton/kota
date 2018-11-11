@@ -1,0 +1,39 @@
+title: Our Program
+"@extends":
+  type: default
+  context: blueprints://pages
+
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+
+      fields:
+        content:
+          fields:
+            content:
+              @unset: true
+
+            header.media_order:
+              @unset: true
+
+            header.kota.subheading:
+              type: text
+              label: Subheading
+
+            header.kota.life.program:
+              name: program
+              type: list
+              label: Program
+
+              fields:
+                .title:
+                  type: text
+                  label: Title
+                .colour:
+                  type: colorpicker
+                  label: Colour
+                .description:
+                  type: editor
+                  label: Description

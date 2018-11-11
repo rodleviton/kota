@@ -1,9 +1,9 @@
 {% set subheading = page.header.kota.subheading %}
 {% set image = page.media.images | first %}
+{% set background = page.header.kota.background %}
 
 {% block content %}
-    <a id="map" href="https://www.google.com/maps/place/Kids+on+the+Avenue+Children's+Centre/@-37.75275,144.965787,18z/data=!4m5!3m4!1s0x0:0x811d51024b4482fd!8m2!3d-37.75275!4d144.9657871?hl=en-US" target="_blank"></a>
-
+<div style="background-color: {{ background ? background : '#fff' }}">
     <div class="container section">
         <h2 class="{{ subheading ? 'no-margin' : '' }}">{{ page.title }}</h2>
         {% if subheading %}
@@ -17,9 +17,7 @@
         <div class="row mt-5">
             {% if image %}
                 <div class="d-none d-lg-block col-lg-6">
-                    <div class="polaroid">
-                        {{ image.html }}
-                    </div>
+                    <a class="polaroid" href="https://www.google.com/maps/place/Kids+on+the+Avenue+Children's+Centre/@-37.75275,144.965787,18z/data=!4m5!3m4!1s0x0:0x811d51024b4482fd!8m2!3d-37.75275!4d144.9657871?hl=en-US" target="_blank">{{ image.html }}</a>
                 </div>
             {% endif %}
 
@@ -33,4 +31,5 @@
             </div>
         </div>
     </div>
+</div>
 {% endblock %}

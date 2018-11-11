@@ -8,9 +8,9 @@
             <h3 class="subheading">{{ subheading }}</h3>
         {% endif %}
 
-        <div id="faqs class=" accordion="accordion">
+        <ul id="faqs" class="list-group" accordion="accordion">
             {% for faq in page.header.kota.faqs %}
-                <div class="faq">
+                <li class="list-group-item faq">
                     <div id="heading-{{loop.index}}">
                         <h5 class="mb-0">
                             <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse-{{loop.index}}" aria-expanded="true" aria-controls="collapse-{{loop.index}}">
@@ -22,11 +22,11 @@
 
                     <div id="collapse-{{loop.index}}" class="collapse" aria-labelledby="heading-{{loop.index}}" data-parent="#faqs">
                         <div class="card-body">
-                            {{ faq.answer }}
+                            {{ faq.answer|markdown}}
                         </div>
                     </div>
-                </div>
+                </li>
             {% endfor %}
-        </div>
+        </ul>
     </div>
 {% endblock %}

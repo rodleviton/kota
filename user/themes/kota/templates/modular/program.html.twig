@@ -1,0 +1,24 @@
+{% set subheading = page.header.kota.subheading %}
+
+{% block content %}
+    <div>
+        <div class="container section">
+            <h2>{{ page.title }}</h2>
+             {% if subheading %}
+                <h3 class="subheading">{{ subheading }}</h3>
+            {% endif %}
+
+            {% for p in page.header.kota.life.program %}
+                <div class="program-item">
+                    <div class="row">
+                        <div class="col-12">
+                            <h4 style="color: {{p.colour}}">{{ p.title }}</h4>
+                            {{ p.description|markdown }}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
